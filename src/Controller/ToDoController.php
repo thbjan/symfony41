@@ -14,7 +14,8 @@
 		*/
 		public function index() {
 			// return new Response('<html><body><h1>TEST</h1></body></html>');
-			$todos = ['todo1', 'todo2', 'todo3'];
+			// $todos = ['todo1', 'todo2', 'todo3'];
+			$todos= $this->getDoctrine()->getRepository(Todo::class)->findAll();
 			return $this->render('todo/index.html.twig', ['todos' => $todos]);    // IMPORTANT: render can pass vars to index.html.twig by an array! 
 		}
 
