@@ -1,2 +1,20 @@
-<H1>TEST</H1>
-<i> - from twig template - </i>
+{% extends 'base.html.twig' %}
+
+{% block title %}todo list{% endblock %}
+
+{% block body %}
+	<H1>TEST</H1>
+	<i> - from twig template - </i>
+	<p>Fem flade flødeboller på et fladt flødebollefad - æøåÆØÅ</p>
+	<p>The array from the controller has the following elements:
+		{% if todos %}
+			<ul>
+				{% for todo in todos %}
+					<li>{{todo}}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<span>No todos data to show!</span>
+		{% endif %}
+	</p>
+{% endblock %}

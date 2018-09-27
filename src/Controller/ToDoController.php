@@ -1,5 +1,6 @@
 <?php
 	namespace App\Controller;
+	use App\Entity\Todo;
 	use Symfony\Component\HttpFoundation\Response;
 	use Symfony\Component\Routing\Annotation\Route;
   	use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -13,8 +14,10 @@
 		*/
 		public function index() {
 			// return new Response('<html><body><h1>TEST</h1></body></html>');
-			return $this->render('todo/index.html.twig');
-
+			$todos = ['todo1', 'todo2', 'todo3'];
+			return $this->render('todo/index.html.twig', ['todos' => $todos]);    // IMPORTANT: render can pass vars to index.html.twig by an array! 
 		}
+
+		
 	} 
 ?>
