@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New to-do{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+	<a class="btn btn-primary" href="../" role="button" style="float: right; position: relative; top: -37px; clear: both;">Go back</a> {# Ugly ugly inline style - not best practice... #}
+{% endblock %}

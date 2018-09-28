@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}todo list{% endblock %}
+
+{% block body %}
+	<h1>todo list</h1>
+	{% if todos %}
+		<div id="todolist">
+			{% for todo in todos %}
+				<div class="mb-2">
+					<a class="btn btn-sm btn-info" aria-label="Left Align" href="todo/{{todo.id}}" role="button"> 
+						{% if todo.completed %}
+							<strike> {{todo.title}} </strike> 
+						{% else %}
+							{{todo.title}}
+						{% endif %}
+					</a>
+					<a href="#" class="btn btn-sm btn-success complete-todo" data-id="{{ todo.id }}">
+						Complete
+					</a>
+					<a href="todo/edit/{{ todo.id }}" class="btn btn-sm btn-dark">Edit</a>
+					<a href="todo/delete/" class="btn btn-sm btn-danger delete-todo" data-id="{{ todo.id }}">
+						Delete
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div id="no_todolist">No todos data to show! </div>
+	{% endif %}
+	<a class="btn btn-primary" href="todo/add" role="button">Add a to-do</a>
+
+{% endblock %}
+{% block javascripts %}
+	<script src="js/app.js"></script>
+{% endblock %}
