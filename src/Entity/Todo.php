@@ -26,6 +26,12 @@ class Todo
      */
     private $task;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default":"0"})
+     */
+    protected $completed = false;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +57,18 @@ class Todo
     public function setTask(string $task): self
     {
         $this->task = $task;
+
+        return $this;
+    }
+
+    public function getcompleted(): ?bool
+    {
+        return $this->completed;
+    }
+
+    public function setcompleted(bool $completed): self
+    {
+        $this->completed = $completed;
 
         return $this;
     }
