@@ -8,7 +8,7 @@
 		<div id="todolist">
 			{% for todo in todos %}
 				<div>
-					<a class="todo btn btn-sm btn-info" href="todo/{{todo.id}}" role="button"> {{todo.title}} </a>
+					<a class="btn btn-sm btn-info mb-2" href="todo/{{todo.id}}" role="button"> {{todo.title}} </a>
 				</div>
 			{% endfor %}
 		</div>
