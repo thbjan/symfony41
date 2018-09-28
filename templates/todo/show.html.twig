@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}todo list{% endblock %}
+
+{% block body %}
+	<h4>{{ todo.title }}</h4>
+	<p>{{ todo.task }}</p>
+	<a class="ctrl btn btn-primary" href="../">Back to list</a><a class="ctrl btn btn-danger" href="../todo/delete">delete</a>
+{% endblock %}

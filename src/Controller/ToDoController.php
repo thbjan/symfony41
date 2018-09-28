@@ -17,6 +17,18 @@
 			// $todos = ['todo1', 'todo2', 'todo3'];
 			$todos= $this->getDoctrine()->getRepository(Todo::class)->findAll();
 			return $this->render('todo/index.html.twig', ['todos' => $todos]);    // IMPORTANT: render can pass vars to index.html.twig by an array! 
+
+			// dump($todos, $this);  // Debug tool from the debug toolbar, which does not work...
+
+		}
+
+		/**
+		* @Route("/todo/{id}", name="to_do_show")
+		* @Method({"GET"})
+		*/
+		public function show($id) {
+			$todo = $this->getDoctrine()->getRepository(Todo::class)->find($id);
+			return $this->render('todo/show.html.twig', ['todo' => $todo]); 
 		}
 
 		

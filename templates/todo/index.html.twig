@@ -3,18 +3,17 @@
 {% block title %}todo list{% endblock %}
 
 {% block body %}
-	<H1>TEST</H1>
-	<i> - from twig template - </i>
-	<p>Fem flade flødeboller på et fladt flødebollefad - æøåÆØÅ</p>
-	<p>The array from the controller has the following elements:
-		{% if todos %}
-			<ul>
-				{% for todo in todos %}
-					<li>{{todo.title}}</li>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<span>No todos data to show!</span>
-		{% endif %}
-	</p>
+	<h1>todo list</h1>
+	{% if todos %}
+		<div id="todolist">
+			{% for todo in todos %}
+				<div>
+					<a class="todo btn btn-sm btn-info" href="todo/{{todo.id}}" role="button"> {{todo.title}} </a>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div id="no_todolist">No todos data to show! </div>
+	{% endif %}
+	<a class="btn btn-primary" href="todo/add" role="button">Add a to-do</a>
 {% endblock %}
